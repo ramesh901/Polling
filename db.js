@@ -13,7 +13,6 @@ var data = {
   }
 }
 /*
-
 function getPollByID(pollID) {
     var findObject = data['polls'].filter(function (item) {
         return (String(item.id) === pollID)
@@ -27,7 +26,6 @@ function getPollByID(pollID) {
 
 }
 */
-
 function getPollByID (pollID) {
   if (!(String(pollID) in data['polls'])) {
     return null
