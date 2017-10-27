@@ -16,7 +16,10 @@ app.get('/poll/:id', function (req, res) {
   }
   return res.json({ error: 'No such poll' })
 })
-
+app.use('/survey',express.static(__dirname + '/views'))
+app.use('/survey',express.static(__dirname + '/public/javascripts'))
+/*
+http://localhost:3040/survey/adminSummary.html
 app.get('/survey', function (req, res) {
   let pathname = './views/adminSummary.html'
   fs.readFile(pathname, 'utf8', function (err, data) {
@@ -29,6 +32,6 @@ app.get('/survey', function (req, res) {
     }
   })
 })
-
+*/
 app.listen(3040)
 console.log('listening to port 3040')
