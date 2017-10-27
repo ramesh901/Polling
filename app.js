@@ -9,25 +9,25 @@ app.get('/polls', function (req, res) {
 })
 
 app.get('/poll/:id', function (req, res) {
-    var pollID = req.params.id
-    var poll = db.getPollByID(pollID)
-    if (poll !== null) {
-        return res.json({ resp: poll })
-    }
-    return res.json({ error: 'No such poll' })  
+  var pollID = req.params.id
+  var poll = db.getPollByID(pollID)
+  if (poll !== null) {
+    return res.json({ resp: poll })
+  }
+  return res.json({ error: 'No such poll' })
 })
 
-app.get('/survey', function (req,res) {
-    let pathname = './views/adminSummary.html'
-    fs.readFile(pathname, 'utf8', function (err, data) {
-        if (err) throw err
-        else {
-            //const ext = path.parse(pathname).ext
-            //console.log('ext is', ext)
-            res.setHeader('Content-type', 'text/html')
-            res.end(data)
-        }
-    })
+app.get('/survey', function (req, res) {
+  let pathname = './views/adminSummary.html'
+  fs.readFile(pathname, 'utf8', function (err, data) {
+    if (err) throw err
+    else {
+            // const ext = path.parse(pathname).ext
+            // console.log('ext is', ext)
+      res.setHeader('Content-type', 'text/html')
+      res.end(data)
+    }
+  })
 })
 
 app.listen(3040)
